@@ -1,8 +1,4 @@
 <?php
-// ============================================
-// INDEX.PHP - Shows all students (READ)
-// This is the homepage of our app.
-// ============================================
 
 include 'config/db.php';
 
@@ -38,7 +34,7 @@ $result = $conn->query($sql);
             </thead>
             <tbody>
                 <?php
-                // If there are rows, loop through and print each one as a table row
+                
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
