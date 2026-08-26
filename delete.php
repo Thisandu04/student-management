@@ -1,9 +1,4 @@
 <?php
-// ============================================
-// DELETE.PHP - Delete a student (DELETE)
-// This runs when the "Delete" link is clicked
-// from the index.php table.
-// ============================================
 
 include 'config/db.php';
 
