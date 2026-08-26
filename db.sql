@@ -8,5 +8,5 @@ CREATE TABLE students (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
+select * from students ;
 
