@@ -1,0 +1,12 @@
+CREATE TABLE students (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    student_id VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100),
+    course VARCHAR(100),
+    grade VARCHAR(5),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
