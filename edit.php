@@ -1,16 +1,10 @@
 <?php
-// ============================================
-// EDIT.PHP - Edit an existing student (UPDATE)
-// Similar to add.php, but:
-// 1. Loads existing data into the form first
-// 2. Updates instead of inserting
-// ============================================
 
 include 'config/db.php';
 
 $error = "";
 
-// Get the ID from the URL (e.g. edit.php?id=3)
+
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($id === 0) {
@@ -18,7 +12,7 @@ if ($id === 0) {
     exit();
 }
 
-// Handle form submission (updating the record)
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name       = trim($_POST['name']);
     $student_id = trim($_POST['student_id']);
@@ -42,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Fetch the existing student data to pre-fill the form
+
 $stmt = $conn->prepare("SELECT * FROM students WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -50,7 +44,7 @@ $result = $stmt->get_result();
 $student = $result->fetch_assoc();
 $stmt->close();
 
-// If no student found with that ID, go back home
+
 if (!$student) {
     header("Location: index.php");
     exit();
