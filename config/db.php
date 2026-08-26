@@ -1,10 +1,10 @@
 <?php
-// ============================================
+
 // DATABASE CONNECTION FILE
 // This file connects to MySQL using mysqli.
 // Every other PHP file will "include" this file
 // whenever it needs to talk to the database.
-// ============================================
+
 
 $host   = "localhost";  // WAMP runs MySQL on localhost
 $user   = "root";       // default WAMP username
