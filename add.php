@@ -1,35 +1,28 @@
 <?php
-// ============================================
-// ADD.PHP - Add a new student (CREATE)
-// This file does TWO jobs:
-// 1. Shows the form (when page first loads)
-// 2. Processes the form (when submit button is clicked)
-// ============================================
-
 include 'config/db.php';
 
 $error = "";
 
-// This block only runs when the form is SUBMITTED (POST request)
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Grab and clean the form values
+    
     $name       = trim($_POST['name']);
     $student_id = trim($_POST['student_id']);
     $email      = trim($_POST['email']);
     $course     = trim($_POST['course']);
     $grade      = trim($_POST['grade']);
 
-    // Basic validation
+    
     if (empty($name) || empty($student_id)) {
-        $error = "Name and Student ID are required.";
+        $error = "Name and Student ID are required fields.";
     } else {
-        // Prepared statement = safe way to insert data (prevents SQL injection)
+        
         $stmt = $conn->prepare("INSERT INTO students (name, student_id, email, course, grade) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $name, $student_id, $email, $course, $grade);
 
         if ($stmt->execute()) {
-            // Success! Redirect back to the homepage
+            $echo = "Student added successfully!";
             header("Location: index.php");
             exit();
         } else {
