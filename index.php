@@ -15,6 +15,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 
+    <img src="C:\wamp64\www\student-management\student-management project background img.jpg" alt="Background Image" class="background-image">
     <div class="container">
         <h1>Student Management System</h1>
 
